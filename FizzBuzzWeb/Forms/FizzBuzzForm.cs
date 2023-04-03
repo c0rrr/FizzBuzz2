@@ -6,8 +6,11 @@ namespace FizzBuzzWeb.Forms
 {
     public class FizzBuzzForm
     {
-        [Display(Name = "Twój szczęśliwy numerek")]
-        [Required, Range(1, 1000, ErrorMessage = "Oczekiwana wartość {0} z zakresu {1} i {2}.")]
-        public int? Number { get; set; }
+        [Display(Name = "Imię: ")]
+        [Required, MaxLength(100, ErrorMessage ="Maxymalna długość to {1}")]
+        public string Name { get; set; }
+        [Display(Name = "Rok urodzenia: ")]
+        [Required, Range(1899, 2022, ErrorMessage = "Oczekiwana wartość {0} z zakresu {1} i {2}.")]
+        public int Year { get; set; }
     }
 }
