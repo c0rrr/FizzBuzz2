@@ -13,10 +13,11 @@ namespace FizzBuzzWeb.Pages
         {
             var data = HttpContext.Session.GetString("Data");
 
-            if (data != null)
+            if (data != null )
             {
                 FizzBuzz = JsonConvert.DeserializeObject<FizzBuzzForm>(data);
             }
+            if (FizzBuzz == null || FizzBuzz.Name == null) RedirectToPage("./Privacy");
         }
     }
 }
