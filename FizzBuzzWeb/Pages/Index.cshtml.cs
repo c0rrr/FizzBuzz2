@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics.Eventing.Reader;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace FizzBuzzWeb.Pages
 {
@@ -28,8 +30,8 @@ namespace FizzBuzzWeb.Pages
         {
             if (!ModelState.IsValid)
             {
-                TempData["AlertMessage"] = "Fizz";
-                return Page();
+                HttpContext.Session.SetString("Data", JsonConvert.SerializeObject(FizzBuzz));
+                return RedirectToPage("./SavedInSession");
             }
             return RedirectToPage("./Privacy");
         }
