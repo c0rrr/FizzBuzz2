@@ -31,9 +31,15 @@ namespace FizzBuzzWeb.Pages
         {
             if (!ModelState.IsValid)
             {
-                FizzBuzzList.Add(FizzBuzz);
+                var data = HttpContext.Session.GetString("Data");
+
+                if (data != null)
+                {
+                    FizzBuzzList = JsonConvert.DeserializeObject<List<FizzBuzzForm>>(data);
+                }
+                if(FizzBuzzList != null)    FizzBuzzList.Add(FizzBuzz);
                 HttpContext.Session.SetString("Data", JsonConvert.SerializeObject(FizzBuzzList));
-                return RedirectToPage("./SavedInSession");
+                return Page();
             }
             return RedirectToPage("./Privacy");
         }

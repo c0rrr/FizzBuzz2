@@ -7,50 +7,49 @@
 <p>Zapisane:</p>
 @foreach(FizzBuzzForm FizzBuzz in Model.FizzBuzzList)
 {
-    if (FizzBuzz.Name != null & FizzBuzz.Name[FizzBuzz.Name.Length-1] == 'a')
+    if (FizzBuzz.Name != null)
     {
-        if (FizzBuzz.Year % 4 == 0)
+        if (FizzBuzz.Name[FizzBuzz.Name.Length - 1] == 'a')
         {
-            <p>
-                @FizzBuzz.Name
-                urodziła się w
-                @FizzBuzz.Year
-                roku.
-                To był rok przestępny.
-            </p>
+            if (FizzBuzz.Year % 4 == 0)
+            {
+                <p>
+                    @FizzBuzz.Name
+                    , 
+                    @FizzBuzz.Year
+                    - rok przestępny.
+                </p>
+            }
+            else
+            {
+                <p>
+                    @FizzBuzz.Name
+                    , 
+                    @FizzBuzz.Year
+                    - był rok przestępny.
+                </p>
+            }
         }
         else
         {
-            <p>
-                @FizzBuzz.Name
-                urodziła się w
-                @FizzBuzz.Year
-                roku.
-                To nie był rok przestępny.
-            </p>
-        }
-    }
-    else
-    {
-        if (FizzBuzz.Year % 4 == 0)
-        {
-            <p>
-                @FizzBuzz.Name
-                urodził się w
-                @FizzBuzz.Year
-                roku.
-                To był rok przestępny.
-            </p>
-        }
-        else
-        {
-            <p>
-                @FizzBuzz.Name
-                urodził się w
-                @FizzBuzz.Year
-                roku.
-                To nie był rok przestępny.
-        </p>
+            if (FizzBuzz.Year % 4 == 0)
+            {
+                <p>
+                    @FizzBuzz.Name
+                    , 
+                    @FizzBuzz.Year
+                    - rok przestępny.
+                </p>
+            }
+            else
+            {
+                <p>
+                    @FizzBuzz.Name
+                    , 
+                    @FizzBuzz.Year
+                    - rok przestępny.
+                </p>
+            }
         }
     }
 }

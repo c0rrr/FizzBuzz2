@@ -16,3 +16,50 @@
     </div>
     <button type="submit" class="btn btn-primary">Zatwierdź</button>
 </form>
+@if (Model.FizzBuzz.Name != null)
+    if (Model.FizzBuzz.Name[Model.FizzBuzz.Name.Length - 1] == 'a')
+    {
+    if (Model.FizzBuzz.Year % 4 == 0)
+        {
+            <p>
+            @Model.FizzBuzz.Name
+                urodziła się w
+            @Model.FizzBuzz.Year
+                roku.
+                To był rok przestępny.
+            </p>
+        }
+        else
+        {
+            <p>
+            @Model.FizzBuzz.Name
+                urodziła się w
+            @Model.FizzBuzz.Year
+                roku.
+                To nie był rok przestępny.
+            </p>
+        }
+    }
+    else
+    {
+    if (Model.FizzBuzz.Year % 4 == 0)
+        {
+            <p>
+            @Model.FizzBuzz.Name
+                urodził się w
+                @Model.FizzBuzz.Year
+                roku.
+                To był rok przestępny.
+            </p>
+        }
+        else
+        {
+            <p>
+                @Model.FizzBuzz.Name
+                urodził się w
+                @Model.FizzBuzz.Year
+                roku.
+                To nie był rok przestępny.
+            </p>
+        }
+    }
