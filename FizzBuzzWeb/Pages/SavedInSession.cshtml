@@ -1,52 +1,56 @@
 ﻿@page
+@using FizzBuzzWeb.Forms;
 @model FizzBuzzWeb.Pages.SavedInSessionModel
 @{
     ViewData["Title"] = "Zapisane";
 }
 <p>Zapisane:</p>
-@if (Model.FizzBuzz.Name != null & Model.FizzBuzz.Name[Model.FizzBuzz.Name.Length-1] == 'a')
+@foreach(FizzBuzzForm FizzBuzz in Model.FizzBuzzList)
 {
-    @if (Model.FizzBuzz.Year % 4 == 0)
+    if (FizzBuzz.Name != null & FizzBuzz.Name[FizzBuzz.Name.Length-1] == 'a')
     {
-        <p>
-            @Model.FizzBuzz.Name
-            urodziła się w
-            @Model.FizzBuzz.Year
-            roku.
-            To był rok przestępny.
-        </p>
+        if (FizzBuzz.Year % 4 == 0)
+        {
+            <p>
+                @FizzBuzz.Name
+                urodziła się w
+                @FizzBuzz.Year
+                roku.
+                To był rok przestępny.
+            </p>
+        }
+        else
+        {
+            <p>
+                @FizzBuzz.Name
+                urodziła się w
+                @FizzBuzz.Year
+                roku.
+                To nie był rok przestępny.
+            </p>
+        }
     }
     else
     {
-        <p>
-            @Model.FizzBuzz.Name
-            urodziła się w
-            @Model.FizzBuzz.Year
-            roku.
-            To nie był rok przestępny.
+        if (FizzBuzz.Year % 4 == 0)
+        {
+            <p>
+                @FizzBuzz.Name
+                urodził się w
+                @FizzBuzz.Year
+                roku.
+                To był rok przestępny.
+            </p>
+        }
+        else
+        {
+            <p>
+                @FizzBuzz.Name
+                urodził się w
+                @FizzBuzz.Year
+                roku.
+                To nie był rok przestępny.
         </p>
-    }
-}
-else
-{
-    @if (Model.FizzBuzz.Year % 4 == 0)
-    {
-        <p>
-            @Model.FizzBuzz.Name
-            urodził się w
-            @Model.FizzBuzz.Year
-            roku.
-            To był rok przestępny.
-        </p>
-    }
-    else
-    {
-        <p>
-            @Model.FizzBuzz.Name
-            urodził się w
-            @Model.FizzBuzz.Year
-            roku.
-            To nie był rok przestępny.
-        </p>
+        }
     }
 }

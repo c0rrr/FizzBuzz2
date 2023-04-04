@@ -12,6 +12,7 @@ namespace FizzBuzzWeb.Pages
         private readonly ILogger<IndexModel> _logger;
         [BindProperty(SupportsGet = true)]
         public FizzBuzzForm FizzBuzz { get; set; }
+        public List<FizzBuzzForm> FizzBuzzList = new List<FizzBuzzForm>();
         [BindProperty(SupportsGet = true)]
         public string Name { get; set; }
         public IndexModel(ILogger<IndexModel> logger)
@@ -30,7 +31,8 @@ namespace FizzBuzzWeb.Pages
         {
             if (!ModelState.IsValid)
             {
-                HttpContext.Session.SetString("Data", JsonConvert.SerializeObject(FizzBuzz));
+                FizzBuzzList.Add(FizzBuzz);
+                HttpContext.Session.SetString("Data", JsonConvert.SerializeObject(FizzBuzzList));
                 return RedirectToPage("./SavedInSession");
             }
             return RedirectToPage("./Privacy");
