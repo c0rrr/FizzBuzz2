@@ -7,11 +7,11 @@
 <form method="post">
     <div class="form-group">
         <label for=exampleInputNumber asp-for="FizzBuzz.Name"></label><br />
-        <input type="text" class="form-control" asp-for="FizzBuzz.Name">
+        <input type="text" class="form-control" asp-for="FizzBuzz.Name" maxlength="100" required>
         <span asp-validation-for="FizzBuzz.Name" class="text-danger"></span>
 
         <label for=exampleInputNumber asp-for="FizzBuzz.Year"></label><br />
-        <input type="number" class="form-control" asp-for="FizzBuzz.Year">
+        <input type="number" class="form-control" asp-for="FizzBuzz.Year" min="1899" max="2022" required>
         <span asp-validation-for="FizzBuzz.Year" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Zatwierdź</button>
